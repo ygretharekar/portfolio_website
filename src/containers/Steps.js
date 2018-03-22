@@ -2,20 +2,36 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { change_step } from "../actionPath";
 
+import ProjectPage from "./zerothPageContent";
+import PIPPage from "./PIPage";
+import CertiPage from "./CertiPage";
+
 import {Steps, Button, message} from "antd";
 const Step = Steps.Step;
 
 const steps = [
 	{
-		title: "First",
-		content: "First-content",
+		title: "Objectives",
+		content: <PIPPage />,
 	}, 
 	{
-		title: "Second",
+		title: "Certificates",
+		content: <CertiPage />,
+	},
+	{
+		title: "Projects",
+		content : <ProjectPage/>,
+	},
+	{
+		title: "Education",
 		content: "Second-content",
-	}, 
+	},
 	{
-		title: "Last",
+		title: "Other Achievements",
+		content: "Second-content",
+	},
+	{
+		title: "Contact",
 		content: "Last-content",
 	}
 ];
@@ -27,22 +43,25 @@ class StepsCont extends Component {
 	render() {
 		return (
 			<div>
-				<Step current={this.props.step} >
+				<Steps className='steps-action'	 current={this.props.step} >
 					{
 						steps.map(
-							item => <Step key={item.title} title={item.title} />	
+							item => <Step 
+								key={item.title} 
+								title={item.title}
+							/>
 						)
 					}
-				</Step>
+				</Steps>
 				
-				<div className="steps-content">
+				<div className="steps-content" >
 					{
 						steps[this.props.step].content
 					}
 				</div>
 				<div className="steps-action">
 					{
-						this.props.step < 2
+						this.props.step < 5
 						&&
 						<Button 
 							type="primary" 
@@ -54,14 +73,18 @@ class StepsCont extends Component {
 						</Button>
 					}
 					{
-						this.props.step === 2
+						this.props.step === 5
 						&&
 						<Button 
 							type="primary" 
 							onClick={
-								() => message.success(
-									"Processing complete!"
-								)
+								() => {
+									this.props.change_step({STEP: 0});
+									message.success(
+										"Processing complete!"
+									);
+
+								}
 							}
 						>
 							Done
@@ -89,7 +112,6 @@ const mapStateToProps = (state) => ({
 	red: state.red,
 	step: state.steps.STEP
 });
-
 
 const mapDispatchToProps = {
 	change_step
