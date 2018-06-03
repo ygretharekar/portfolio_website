@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Page1 from "./FrontEndContent";
 import Page2 from "./Page2";
+import Page3 from "./Page3";
+import DataP1 from "./DataVizP1";
+import DataP2 from "./DataVizP2";
+import BEPage1 from "./BEPage1";
+import PJPage1 from "./PJPage1";
+
+
 
 import {Layout, Menu, Icon} from "antd";
 const {SubMenu} = Menu;
@@ -26,12 +33,34 @@ export class ZeroPage extends Component {
 		case "1":
 			this.setState({content: <Page1 />});
 			break;
+
 		case "2":
 			this.setState({content: <Page2 />});
 			break;
-		
+
+		case "3":
+			this.setState({content: <Page3 />});
+			break;
+
+		case "4":
+			this.setState({content: <DataP1 />});
+			break;
+
+		case "5":
+			this.setState({content: <DataP2 />});
+			break;
+
+		case "6":
+			this.setState({content: <BEPage1 />});
+			break;
+
+		case "7":
+			this.setState({content: <PJPage1 />});
+			break;
+
 		default:
 			break;
+
 		}
 	}
 
@@ -50,31 +79,19 @@ export class ZeroPage extends Component {
 								<Menu.Item key="1">Page 1</Menu.Item>
 								<Menu.Item key="2">Page 2</Menu.Item>
 								<Menu.Item key="3">Page 3</Menu.Item>
-								<Menu.Item key="4">Page 4</Menu.Item>
 							</SubMenu>
 							<SubMenu key="sub2" title={<span><Icon type="line-chart" />Data Viz</span>}>
-								<Menu.Item key="5">option5</Menu.Item>
-								<Menu.Item key="6">option6</Menu.Item>
-								<Menu.Item key="7">option7</Menu.Item>
-								<Menu.Item key="8">option8</Menu.Item>
+								<Menu.Item key="4">Page 1</Menu.Item>
+								<Menu.Item key="5">Page 2</Menu.Item>
 							</SubMenu>
 							<SubMenu key="sub3" title={<span><Icon type="database" />Back End</span>}>
-								<Menu.Item key="9">option9</Menu.Item>
-								<Menu.Item key="10">option10</Menu.Item>
-								<Menu.Item key="11">option11</Menu.Item>
-								<Menu.Item key="12">option12</Menu.Item>
+								<Menu.Item key="6">Page 1</Menu.Item>
 							</SubMenu>
 							<SubMenu key="sub4" title={<span><Icon type="code" />Python Django</span>}>
-								<Menu.Item key="9">option9</Menu.Item>
-								<Menu.Item key="10">option10</Menu.Item>
-								<Menu.Item key="11">option11</Menu.Item>
-								<Menu.Item key="12">option12</Menu.Item>
+								<Menu.Item key="7">Page 1</Menu.Item>
 							</SubMenu>
 							<SubMenu key="sub5" title={<span><Icon type="android" />Android</span>}>
-								<Menu.Item key="9">option9</Menu.Item>
-								<Menu.Item key="10">option10</Menu.Item>
-								<Menu.Item key="11">option11</Menu.Item>
-								<Menu.Item key="12">option12</Menu.Item>
+								<Menu.Item key="8">Page 1</Menu.Item>
 							</SubMenu>
 						</Menu>
 					</Sider>
@@ -90,6 +107,8 @@ export class ZeroPage extends Component {
 const mapStateToProps = (state) => ({
 	step: state.steps.STEP
 });
+
+
 
 const mapDispatchToProps = {
 
