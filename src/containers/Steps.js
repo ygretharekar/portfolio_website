@@ -5,6 +5,9 @@ import { change_step } from "../actionPath";
 import ProjectPage from "./zerothPageContent";
 import PIPPage from "./PIPage";
 import CertiPage from "./CertiPage";
+import Other from "./OtherAchievementsPage";
+import Edu from "./EduPage";
+import FForm from "./FeedbackForm";
 
 import {Steps, Button, message} from "antd";
 const Step = Steps.Step;
@@ -24,15 +27,11 @@ const steps = [
 	},
 	{
 		title: "Education",
-		content: "Second-content",
+		content: <Edu />,
 	},
 	{
 		title: "Other Achievements",
-		content: "Second-content",
-	},
-	{
-		title: "Contact",
-		content: "Last-content",
+		content: <Other />,
 	}
 ];
 
@@ -40,7 +39,18 @@ const steps = [
 
 class StepsCont extends Component {
 
+	submit(values) {
+		// print the form values to the console
+		console.log(values);
+	}
+
 	render() {
+		steps[5] = {
+			title: "Feedback",
+			content: <FForm onSubmit={this.submit} />,
+		};
+
+		
 		return (
 			<div>
 				<Steps className='steps-action'	 current={this.props.step} >
@@ -81,9 +91,9 @@ class StepsCont extends Component {
 								() => {
 									this.props.change_step({STEP: 0});
 									message.success(
-										"Processing complete!"
+										"Thank you!!"
 									);
-
+	
 								}
 							}
 						>

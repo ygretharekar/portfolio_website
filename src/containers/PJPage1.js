@@ -59,9 +59,5 @@ const mapStateToProps = (state) => ({
 	step: state.steps.STEP
 });
 
-const mapDispatchToProps = {
-
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FrontEndContent);
+export default connect(mapStateToProps)(FrontEndContent);
 //https://pinterest-clone-ygretharekar.c9users.io/

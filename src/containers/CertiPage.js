@@ -15,18 +15,18 @@ export class ZeroPage extends Component {
 						<Collapse accordion>
 							<Panel header="Front End Developer Certificate" key="1">
 								<a 
-									href="https://www.freecodecamp.org/ygretharekar/front-end-certification"
+									href ="https://freecodecamp.org/certification/ygretharekar/legacy-front-end"
 								>
 									See Certificate here.
 								</a>
 							</Panel>
 							<Panel header="Data Visualization Certificate" key="2">
-								<a href="https://www.freecodecamp.org/ygretharekar/data-visualization-certification">
+								<a href="https://freecodecamp.org/certification/ygretharekar/legacy-data-visualization">
 									See Certificate here.
 								</a>
 							</Panel>
 							<Panel header="Back End Developer Certificate" key="3">
-								<a href="https://www.freecodecamp.org/ygretharekar/back-end-certification"  >
+								<a href="https://freecodecamp.org/certification/ygretharekar/legacy-back-end">
 									See Certificate here.
 								</a>
 							</Panel>

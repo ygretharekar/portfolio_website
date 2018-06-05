@@ -7,7 +7,7 @@ import DataP1 from "./DataVizP1";
 import DataP2 from "./DataVizP2";
 import BEPage1 from "./BEPage1";
 import PJPage1 from "./PJPage1";
-
+import APage1 from "./APage1";
 
 
 import {Layout, Menu, Icon} from "antd";
@@ -25,6 +25,7 @@ export class ZeroPage extends Component {
 	}
 	
 	handleClick(e) {
+
 		console.log("====================================");
 		console.log("click", e);
 		console.log("====================================");
@@ -58,6 +59,10 @@ export class ZeroPage extends Component {
 			this.setState({content: <PJPage1 />});
 			break;
 
+		case "8":
+			this.setState({ content: <APage1 /> });
+			break;
+		
 		default:
 			break;
 
@@ -72,6 +77,7 @@ export class ZeroPage extends Component {
 						<Menu
 							mode="inline"
 							defaultSelectedKeys={["1"]}
+							defaultOpenKeys={["sub1"]}
 							style={{ height: "100%" }}
 							onClick={this.handleClick.bind(this)}
 						>
@@ -108,10 +114,4 @@ const mapStateToProps = (state) => ({
 	step: state.steps.STEP
 });
 
-
-
-const mapDispatchToProps = {
-
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ZeroPage);
+export default connect(mapStateToProps)(ZeroPage);

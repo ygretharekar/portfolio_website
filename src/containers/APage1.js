@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import {Table} from "antd";
+import {Table, Tabs} from "antd";
+import Screens from "./ScreensPage";
+
+const TabPane = Tabs.TabPane;
 
 const columns = [
 	{
@@ -23,26 +26,38 @@ const columns = [
 
 const data = [
 	{
-		key: "1",
-		name: "Chatting App",
-		description: "Chatting App Made with Dart (Flutter)",
-		source: <a href="https://github.com/ygretharekar/local-bookstore">Github</a>
+		name: "Todo App",
+		description: "Todo App made with flutter and redux",
+		source: <a href="https://github.com/ygretharekar/todo_redux_app_flutter">Github</a>
 		
 	},
 	{
-		key: "2",
-		name: "Expense Logger",
+		name: "Startup Namer",
+		description: "Select a name for your startup",
+		source: <a href="https://github.com/ygretharekar/todo_redux_app_flutter">Github</a>
+		
+	},
+	{
+		name: "Expense Analysis",
 		description: "Log Your Expenses",
-		source: <a href="https://github.com/ygretharekar/urlshortner">Github</a>
+		source: <a href="https://github.com/ygretharekar/exp_an">Github</a>
 	}
 ];
 
-export class FrontEndContent extends Component {
+class FrontEndContent extends Component {
+
 
 	render() {
 		return (
 			<div>
-				<Table columns={columns} dataSource={data} />
+				<Tabs defaultActiveKey="1">
+					<TabPane tab="Projects" key="1">
+						<Table columns={columns} dataSource={data} />
+					</TabPane>
+					<TabPane tab="Screenshots" key="2">
+						<Screens />
+					</TabPane>
+				</Tabs>
 			</div>
 		);
 	}
@@ -52,9 +67,5 @@ const mapStateToProps = (state) => ({
 	step: state.steps.STEP
 });
 
-const mapDispatchToProps = {
-
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FrontEndContent);
+export default connect(mapStateToProps)(FrontEndContent);
 //https://pinterest-clone-ygretharekar.c9users.io/
