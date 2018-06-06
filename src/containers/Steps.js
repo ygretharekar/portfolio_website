@@ -32,6 +32,10 @@ const steps = [
 	{
 		title: "Other Achievements",
 		content: <Other />,
+	},
+	{
+		title: "Feedback",
+		content: <FForm onSubmit={this.submit} />,
 	}
 ];
 
@@ -39,18 +43,8 @@ const steps = [
 
 class StepsCont extends Component {
 
-	submit(values) {
-		// print the form values to the console
-		console.log(values);
-	}
-
 	render() {
-		steps[5] = {
-			title: "Feedback",
-			content: <FForm onSubmit={this.submit} />,
-		};
 
-		
 		return (
 			<div>
 				<Steps className='steps-action'	 current={this.props.step} >

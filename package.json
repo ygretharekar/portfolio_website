@@ -22,9 +22,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev:server": "nodemon serverES6/server.js --exec babel-node",
+    "build:server": "babel serverES6 --out-dir server",
+    "serve": "babel-node serverES6/server.js"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-node8": "^1.2.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.0",
     "eslint-plugin-react": "^7.7.0",
     "react-app-rewired": "^1.5.0",

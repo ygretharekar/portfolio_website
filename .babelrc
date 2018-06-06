@@ -1,0 +1,9 @@
+{
+	"presets": [
+		"node8",
+		"es2017",
+		"env",
+		"react"
+	],
+	"sourceMaps": true
+}
