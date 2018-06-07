@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import me from "../static/me.png";
 import {Layout, Card, Avatar, List, Alert} from "antd";
 const {Content} = Layout;
-import axios from "axios";
 
 const data = [
 	{
@@ -19,16 +18,6 @@ const data = [
 
 
 export class ZeroPage extends Component {
-
-	
-	componentWillMount(){
-		if (typeof (sessionStorage) !== "undefined"){
-			if (!sessionStorage.getItem("visited")) {
-				axios.post("/count");
-				localStorage.setItem("visited", "yes");
-			}
-		}
-	}
 
 	render() {
 		return (

@@ -1,5 +1,4 @@
 import Feedback from "../models/feedback";
-import Count from "../models/count";
 
 
 export const saveFeedback = (req, res) => {
@@ -16,6 +15,10 @@ export const saveFeedback = (req, res) => {
 			}
 		}
 	);
+
+
+
+
 	
 	res.status(200).json({ name, email, feedback, hire });
 

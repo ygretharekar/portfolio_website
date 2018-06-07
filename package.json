@@ -22,7 +22,9 @@
     "traffic-counter": "^0.4.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+
+    "startc": "react-scripts start",
+    "start": "node server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
