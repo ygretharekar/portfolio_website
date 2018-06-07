@@ -7,7 +7,7 @@ import PIPPage from "./PIPage";
 import CertiPage from "./CertiPage";
 import Other from "./OtherAchievementsPage";
 import Edu from "./EduPage";
-import FForm from "./FeedbackForm";
+import FForm from "./FForm";
 
 import {Steps, Button, message} from "antd";
 const Step = Steps.Step;
@@ -35,7 +35,7 @@ const steps = [
 	},
 	{
 		title: "Feedback",
-		content: <FForm onSubmit={this.submit} />,
+		content: <FForm />,
 	}
 ];
 

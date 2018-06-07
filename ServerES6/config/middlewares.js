@@ -5,6 +5,7 @@ import fallback from "express-history-api-fallback";
 import path from "path";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import routes from "./routes";
 
 dotenv.config();
 
@@ -15,8 +16,6 @@ export default app => {
 	app.use(bodyParser.urlencoded({ extended: true }));
 
 	mongoose.connect(process.env.MONGODB_URI);
-
-
 
 	mongoose
 		.connection
@@ -47,4 +46,6 @@ export default app => {
 	);
 
 	app.use(fallback(path.join(__dirname + "../../build")));
+
+	routes(app);
 };

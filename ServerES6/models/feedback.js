@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const FeedbackSchema = new Schema({
 	name: String,
-	email: Schema.Types.email,
+	email: String,
 	feedback: String,
 	hire: {
 		type: Boolean,

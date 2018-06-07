@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Row, Col, Checkbox } from "antd";
+import { Row, Col, Checkbox, Alert } from "antd";
 
 export default class EmailInp extends Component {
 	render() {
-		const { input: { value, onChange } } = this.props;
+		const { input: { value, onChange }, meta: { touched, error } } = this.props;
 		return (
 			<div style={{ margin: "1rem 0 1rem 0" }}>
 				<Row>
@@ -15,6 +15,11 @@ export default class EmailInp extends Component {
 							onChange = {onChange} 
 							style={{float:"right"}}
 						/>
+						{
+							touched &&
+							error &&
+							<Alert message={error} type="error" style={{ margin: "2rem 0 1rem 0" }} />
+						}
 					</Col>
 					<Col span={4} />
 				</Row>

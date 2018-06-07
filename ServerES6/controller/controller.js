@@ -1,4 +1,5 @@
 import Feedback from "../models/feedback";
+import Count from "../models/count";
 
 
 export const saveFeedback = (req, res) => {
@@ -13,10 +14,9 @@ export const saveFeedback = (req, res) => {
 				console.error("Error: ", err);
 				res.status(500).json({error: "feedback couldn't be saved"});
 			}
-			else {
-				res.status(200).json({ name, email, feedback, hire });
-			}
 		}
 	);
+	
+	res.status(200).json({ name, email, feedback, hire });
 
 };

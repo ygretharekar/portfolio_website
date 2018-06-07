@@ -1,5 +1,6 @@
 import React from "react";
 import {Field, reduxForm, SubmissionError} from "redux-form";
+import {message} from "antd";
 
 import NameInp from "./nameInput";
 import EmailInp from "./emailInput";
@@ -22,15 +23,22 @@ let FeedbackForm = props => {
 				_error: "form not submitted!"
 			});
 		} 
-		else if (!values.textarea) {
+		else if (!values.feedback) {
 			throw new SubmissionError({
-				textarea: "please write feedback",
+				feedback: "Please write feedback",
+				_error: "form not submitted!"
+			});
+		}
+		else if(props.feedback.error){
+			throw new SubmissionError({
+				hire: "Server Error",
 				_error: "form not submitted!"
 			});
 		}
 		else {
 			console.log(values);
-		} 
+			props.sendFeedback(values);
+		}
 	};
 
 	return (
@@ -50,7 +58,7 @@ let FeedbackForm = props => {
 				<Field name="email" component={EmailInp} type="email" />
 			</div>
 			<div>
-				<Field name="textarea" component={FField} />
+				<Field name="feedback" component={FField} />
 			</div>
 			<div>
 				<Field name="hire" component={Hire} />
@@ -58,10 +66,15 @@ let FeedbackForm = props => {
 			<div>
 				{submitFailed && <strong>{error}</strong>}
 			</div>
+			<div>
+				{props.feedback.name && message.success(`Thanks for your feedback, ${props.feedback.name}`)}
+			</div>
+			<div>
+				{props.feedback.error && message.error(`Error: ${props.feedback.name}`)}
+			</div>
+
 			<button type="submit" style={{marginBottom: "2rem"}}>Submit</button>
 		</form>
-
-
 	);
 };
 

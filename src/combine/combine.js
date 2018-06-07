@@ -1,13 +1,13 @@
 import {combineReducers} from "redux";
 import {reducer as formReducer} from "redux-form";
 
-import red from "../reducers/reducer";
 import steps from "../reducers/stepsReducer";
+import feedback from "../reducers/feedbackReducer";
 
 export default combineReducers(
 	{
-		red,
 		steps,
+		feedback,
 		form: formReducer
 	}
 );
