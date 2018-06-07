@@ -25,10 +25,11 @@ export class ZeroPage extends Component {
 	}
 	
 	handleClick(e) {
-
-		console.log("====================================");
-		console.log("click", e);
-		console.log("====================================");
+		/* 
+			console.log("====================================");
+			console.log("click", e);
+			console.log("===================================="); 
+		*/
 
 		switch (e.key) {
 		case "1":

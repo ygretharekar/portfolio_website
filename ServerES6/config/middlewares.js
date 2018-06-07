@@ -3,11 +3,37 @@ import bodyParser from "body-parser";
 import session from "express-session";
 import fallback from "express-history-api-fallback";
 import path from "path";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default app => {
+
 	app.use(express.static(path.join(__dirname, "../../build")));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
+
+	mongoose.connect(process.env.MONGODB_URI);
+
+
+
+	mongoose
+		.connection
+		.once(
+			"open",
+			() => {
+				console.log("====================================");
+				console.log("database connection established");
+				console.log("====================================");
+			}
+		)
+		.on(
+			"error",
+			err => {
+				console.error(err);
+			}
+		);
 
 	app.use(
 		session(
